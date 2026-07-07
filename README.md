@@ -1,13 +1,13 @@
 # Telco Customer Churn
 
-Predicting which customers are likely to churn, using the IBM Telco Customer Churn dataset (~7,000 customers, 20 features across demographics, account info and subscribed services).
+Predicting which customers are likely to churn, using the IBM Telco Customer Churn dataset (~7,000 customers, 20 features across demographics, account info, and subscribed services).
 
 ## Project structure
 
 | File | Purpose |
 |---|---|
 | `Teleco_Customer_Churn.csv` | Raw dataset (place here before running anything) |
-| `ppp_v2.ipynb` | EDA and preprocessing — cleans the data, runs statistical tests (Mann-Whitney, chi², VIF, Mutual Information) to decide which features to keep, exports `teleco_model_ready.csv` |
+| `eda_preprocessing.ipynb` | EDA and preprocessing — cleans the data, runs statistical tests (Mann-Whitney, chi², VIF, Mutual Information) to decide which features to keep, exports `teleco_model_ready.csv` |
 | `model_comparison.ipynb` | Trains and compares 4 models (Logistic Regression, Random Forest, Gradient Boosting, XGBoost), tunes the decision threshold for F2, runs 5-fold CV, exports `best_model.pkl` |
 | `app.py` | Streamlit demo app — loads `best_model.pkl` and predicts churn risk for a customer.
 
@@ -23,8 +23,8 @@ pip install -r requirements.txt
 Run in this order — each step depends on the file produced by the previous one:
 
 1. **Place the dataset**: put `Teleco_Customer_Churn.csv` in the project root.
-2. **Run `ppp_v2.ipynb`** top to bottom (Kernel → Restart & Run All). Produces `teleco_clean.csv` and `teleco_model_ready.csv`.
-3. **Run `model_comparison.ipynb`** top to bottom. Loads `teleco_model_ready.csv`, compares models, and produces `best_model.pkl`.
+2. **Run `eda_preprocessing.ipynb`** Produces `teleco_clean.csv` and `teleco_model_ready.csv`.
+3. **Run `model_comparison.ipynb`** Loads `teleco_model_ready.csv`, compares models, and produces `best_model.pkl`.
 4. **Launch the demo app**:
    ```bash
    streamlit run app.py
